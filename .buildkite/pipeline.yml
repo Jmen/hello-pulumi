@@ -1,4 +1,9 @@
 steps:
+  - plugins:
+    - danthorpe/cache#v1.0.0:
+        cache_key: "v1-cache-{{ checksum 'yarn.lock' }}"
+        paths: [ "node_modules/" ]
+
   - label: Build
     commands:
       - yarn
