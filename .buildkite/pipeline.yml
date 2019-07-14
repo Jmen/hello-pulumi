@@ -1,32 +1,21 @@
 steps:
-  - label: Build
-    commands:
-      - yarn
-    artifact_paths:
-      - "node_modules/**/*"
-      
-  - wait
 
   - label: Preview Test
     commands:
-      - buildkite-agent artifact download "node_modules/**/*" .
       - .\scripts\preview.cmd test
 
   - label: Preview Prod
     commands:
-      - buildkite-agent artifact download "node_modules/**/*" .
       - .\scripts\preview.cmd prod
 
   - wait
 
   - label: Up Test
     commands:
-      - buildkite-agent artifact download "node_modules/**/*" .
       - .\scripts\up.cmd test
 
   - wait
 
   - label: Up Prod
     commands:
-      - buildkite-agent artifact download "node_modules/**/*" .
       - .\scripts\up.cmd prod
