@@ -1,0 +1,26 @@
+steps:
+  - label: Build
+    commands:
+      - yarn
+      
+  - wait
+
+  - label: Preview Test
+    commands:
+      - .\scripts\preview.cmd test
+
+  - label: Preview Prod
+    commands:
+      - .\scripts\preview.cmd prod
+
+  - wait
+
+  - label: Up Test
+    commands:
+      - .\scripts\up.cmd test
+
+  - wait
+
+  - label: Up Prod
+    commands:
+      - .\scripts\up.cmd prod
