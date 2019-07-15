@@ -13,8 +13,8 @@ let endpoint = new awsx.apigateway.API("hello-world", {
                 statusCode: 200,
                 body: JSON.stringify({ hello: "world" }),
             };
-        }
-    }]
+        },
+    }],
 });
 
 exports.endpoint = endpoint.url;
