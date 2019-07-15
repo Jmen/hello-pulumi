@@ -45,7 +45,7 @@
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/@protobufjs/utf8/-/utf8-1.1.0.tgz#a777360b5b39a1a2e5106f8e858f2fd2d060c570"
 
-"@pulumi/aws@^0.18.14", "@pulumi/aws@^0.18.21":
+"@pulumi/aws@^0.18.0", "@pulumi/aws@^0.18.14", "@pulumi/aws@^0.18.21":
   version "0.18.21"
   resolved "https://registry.yarnpkg.com/@pulumi/aws/-/aws-0.18.21.tgz#a4dc9b1c5ea0d89217e5ff9f6c4c409247b40ccd"
   dependencies:
@@ -56,7 +56,7 @@
     read-package-tree "^5.2.1"
     resolve "^1.7.1"
 
-"@pulumi/awsx@^0.18.7":
+"@pulumi/awsx@^0.18.0", "@pulumi/awsx@^0.18.7":
   version "0.18.7"
   resolved "https://registry.yarnpkg.com/@pulumi/awsx/-/awsx-0.18.7.tgz#459ae1d094c87948359f9f204d43cfa6e0fef5d5"
   dependencies:
@@ -67,6 +67,25 @@
     deasync "^0.1.15"
     mime "^2.0.0"
 
+"@pulumi/cloud-aws@^0.18.0":
+  version "0.18.0"
+  resolved "https://registry.yarnpkg.com/@pulumi/cloud-aws/-/cloud-aws-0.18.0.tgz#cd41b52126e34379a87c43072f70ee52710b142f"
+  dependencies:
+    "@pulumi/aws" "^0.18.0"
+    "@pulumi/awsx" "^0.18.0"
+    "@pulumi/cloud" v0.18.0
+    "@pulumi/docker" "^0.17.0"
+    "@pulumi/pulumi" "^0.17.4"
+    aws-serverless-express "^3.3.5"
+    mime "^2.0.3"
+    semver "^5.4.0"
+
+"@pulumi/cloud@^0.18.0", "@pulumi/cloud@v0.18.0":
+  version "0.18.0"
+  resolved "https://registry.yarnpkg.com/@pulumi/cloud/-/cloud-0.18.0.tgz#09aaf65d8ea6810ab6df6c9b9ef97e71d8111ee7"
+  dependencies:
+    "@pulumi/pulumi" "^0.17.4"
+
 "@pulumi/docker@^0.17.0":
   version "0.17.0"
   resolved "https://registry.yarnpkg.com/@pulumi/docker/-/docker-0.17.0.tgz#1bc14cde103814209f9ef786786e56d99ba429c4"
@@ -74,7 +93,7 @@
     "@pulumi/pulumi" "^v0.17.0"
     semver "^5.4.0"
 
-"@pulumi/pulumi@^0.17.20", "@pulumi/pulumi@^v0.17.0", "@pulumi/pulumi@latest":
+"@pulumi/pulumi@^0.17.20", "@pulumi/pulumi@^0.17.4", "@pulumi/pulumi@^v0.17.0", "@pulumi/pulumi@latest":
   version "0.17.22"
   resolved "https://registry.yarnpkg.com/@pulumi/pulumi/-/pulumi-0.17.22.tgz#fcd598fb00a205313b292268fb9c25335a56baaa"
   dependencies:
@@ -161,6 +180,13 @@ aws-sdk@^2.0.0:
     uuid "3.3.2"
     xml2js "0.4.19"
 
+aws-serverless-express@^3.3.5:
+  version "3.3.6"
+  resolved "https://registry.yarnpkg.com/aws-serverless-express/-/aws-serverless-express-3.3.6.tgz#5fb35c23af3d6e18a6bebdb4397d20dfdcc0a828"
+  dependencies:
+    binary-case "^1.0.0"
+    type-is "^1.6.16"
+
 balanced-match@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/balanced-match/-/balanced-match-1.0.0.tgz#89b4d199ab2bee49de164ea02b89ce462d71b767"
@@ -168,6 +194,10 @@ balanced-match@^1.0.0:
 base64-js@^1.0.2:
   version "1.3.0"
   resolved "https://registry.yarnpkg.com/base64-js/-/base64-js-1.3.0.tgz#cab1e6118f051095e58b5281aea8c1cd22bfc0e3"
+
+binary-case@^1.0.0:
+  version "1.1.4"
+  resolved "https://registry.yarnpkg.com/binary-case/-/binary-case-1.1.4.tgz#d687104d59e38f2b9e658d3a58936963c59ab931"
 
 bindings@~1.2.1:
   version "1.2.1"
@@ -492,7 +522,21 @@ make-error@^1.1.1:
   version "1.3.5"
   resolved "https://registry.yarnpkg.com/make-error/-/make-error-1.3.5.tgz#efe4e81f6db28cadd605c70f29c831b58ef776c8"
 
-mime@^2.0.0:
+media-typer@0.3.0:
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/media-typer/-/media-typer-0.3.0.tgz#8710d7af0aa626f8fffa1ce00168545263255748"
+
+mime-db@1.40.0:
+  version "1.40.0"
+  resolved "https://registry.yarnpkg.com/mime-db/-/mime-db-1.40.0.tgz#a65057e998db090f732a68f6c276d387d4126c32"
+
+mime-types@~2.1.24:
+  version "2.1.24"
+  resolved "https://registry.yarnpkg.com/mime-types/-/mime-types-2.1.24.tgz#b6f8d0b3e951efb77dedeca194cff6d16f676f81"
+  dependencies:
+    mime-db "1.40.0"
+
+mime@^2.0.0, mime@^2.0.3:
   version "2.4.4"
   resolved "https://registry.yarnpkg.com/mime/-/mime-2.4.4.tgz#bd7b91135fc6b01cde3e9bae33d659b63d8857e5"
 
@@ -916,6 +960,13 @@ ts-node@^7.0.0:
     mkdirp "^0.5.1"
     source-map-support "^0.5.6"
     yn "^2.0.0"
+
+type-is@^1.6.16:
+  version "1.6.18"
+  resolved "https://registry.yarnpkg.com/type-is/-/type-is-1.6.18.tgz#4e552cd05df09467dcbc4ef739de89f2cf37c131"
+  dependencies:
+    media-typer "0.3.0"
+    mime-types "~2.1.24"
 
 typescript@^3.0.0:
   version "3.5.3"
