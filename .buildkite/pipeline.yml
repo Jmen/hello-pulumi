@@ -2,20 +2,20 @@ steps:
 
   - label: Preview Test
     commands:
-      - .\scripts\preview.cmd test
+      - .\scripts\preview.sh test
 
   - label: Preview Prod
     commands:
-      - .\scripts\preview.cmd prod
+      - .\scripts\preview.sh prod
 
   - wait
 
   - label: Up Test
     commands:
-      - .\scripts\up.cmd test
+      - .\scripts\up.sh test
 
   - wait
 
   - label: Up Prod
     commands:
-      - .\scripts\up.cmd prod
+      - .\scripts\up.sh prod
