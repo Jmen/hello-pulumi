@@ -29,7 +29,11 @@ exports.aws_url = endpoint.url;
 const cloud = require("@pulumi/cloud");
 const api = new cloud.API("cloud-api");
 
-api.get("/hello", (request, result) => {
+api.get("/", (request, result) => {
+    result.json({ hello: "from cloud api" });
+});
+
+api.get("/{route+}", (request, result) => {
     result.json({ hello: "from cloud api" });
 });
 
