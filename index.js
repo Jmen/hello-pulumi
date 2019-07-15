@@ -2,8 +2,9 @@
 //const pulumi = require("@pulumi/pulumi");
 
 const aws = require("@pulumi/aws");
+const awsx = require("@pulumi/awsx");
 
-let endpoint = new aws.apigateway.API("hello-world", {
+let endpoint = new awsx.apigateway.API("hello-world", {
     routes: [{
         path: "/{route+}",
         method: "GET",
