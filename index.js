@@ -6,7 +6,7 @@ const awsx = require("@pulumi/awsx");
 
 let endpoint = new awsx.apigateway.API("hello-world", {
     routes: [{
-        path: "/{route+}",
+        path: "/",
         method: "GET",
         eventHandler: async (event) => {
             return {
