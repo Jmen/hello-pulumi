@@ -28,7 +28,7 @@ for (const region of regions) {
         }],
     }, { provider });
 
-    exports["aws_url" + region] = endpoint.url;
+    exports["aws_url_" + region] = endpoint.url;
 
 }
 
