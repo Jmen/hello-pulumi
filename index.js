@@ -8,22 +8,16 @@ for (const region of regions) {
 
     const provider = new aws.Provider(`provider-${region}`, { region });
 
-    const helloWorldHandler = () => async (event) => {
-        return {
-            statusCode: 200,
-            body: JSON.stringify({hello: `from aws api in region ${region}` }),
-        };
-    };
-
     let endpoint = new awsx.apigateway.API(`aws-api-${region}`, {
         routes: [{
             path: "/",
             method: "GET",
-            eventHandler: helloWorldHandler(),
-        },{
-            path: "/{route+}",
-            method: "GET",
-            eventHandler: helloWorldHandler(),
+            eventHandler: async (event) => {
+                return {
+                    statusCode: 200,
+                    body: JSON.stringify({ hello: `from aws api in region ${region}` }),
+                }
+            }
         }],
     }, { provider });
 
