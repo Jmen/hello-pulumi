@@ -8,11 +8,10 @@ for (const region of regions) {
 
     const provider = new aws.Provider(`provider-${region}`, { region });
 
-
     const helloWorldHandler = () => async (event) => {
         return {
             statusCode: 200,
-            body: JSON.stringify({hello: "from aws api"}),
+            body: JSON.stringify({hello: `from aws api in region ${region}` }),
         };
     };
 
