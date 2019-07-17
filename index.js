@@ -1,30 +1,36 @@
 "use strict";
+const aws = require("@pulumi/aws");
 const awsx = require("@pulumi/awsx");
 
-const helloWorldHandler = () => async (event) => {
-    return {
-        statusCode: 200,
-        body: JSON.stringify({hello: "from aws api"}),
+const regions = ['eu-west-1', 'us-east-1', 'ap-southeast-2']
+
+for (const region of regions) {
+
+    const provider = new aws.Provider(`provider-${region}`, { region });
+
+
+    const helloWorldHandler = () => async (event) => {
+        return {
+            statusCode: 200,
+            body: JSON.stringify({hello: "from aws api"}),
+        };
     };
-};
 
-let endpoint = new awsx.apigateway.API("aws-api", {
-    routes: [{
-        path: "/",
-        method: "GET",
-        eventHandler: helloWorldHandler(),
-    },{
-        path: "/{route+}",
-        method: "GET",
-        eventHandler: helloWorldHandler(),
-    }],
-});
+    let endpoint = new awsx.apigateway.API(`aws-api-${region}`, {
+        routes: [{
+            path: "/",
+            method: "GET",
+            eventHandler: helloWorldHandler(),
+        },{
+            path: "/{route+}",
+            method: "GET",
+            eventHandler: helloWorldHandler(),
+        }],
+    }, { provider });
 
-exports.aws_url = endpoint.url;
+    exports["aws_url" + region] = endpoint.url;
 
-
-
-
+}
 
 const cloud = require("@pulumi/cloud");
 const api = new cloud.API("cloud-api");
