@@ -1,4 +1,4 @@
 yarn
 
 pulumi stack select $1 
-pulumi up
+pulumi up --color always
