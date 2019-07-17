@@ -8,11 +8,14 @@ for (const region of regions) {
 
     const provider = new aws.Provider(`provider-${region}`, { region });
 
-    let endpoint = new awsx.apigateway.API(`aws-api-${region}`, {
+    let apiGateway = new awsx.apigateway.API(`aws-api-${region}`, {
         routes: [{
             path: "/",
             method: "GET",
             eventHandler: async (event) => {
+
+                console.log(`hello from ${region}`);
+
                 return {
                     statusCode: 200,
                     body: JSON.stringify({ hello: `from aws api in region ${region}` }),
@@ -21,6 +24,5 @@ for (const region of regions) {
         }],
     }, { provider });
 
-    exports["aws_url_" + region] = endpoint.url;
-
+    exports["aws_url_" + region] = apiGateway.url;
 }
